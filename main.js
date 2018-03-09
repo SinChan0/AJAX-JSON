@@ -1,38 +1,54 @@
 var data = document.getElementById("tbl");
 var btn = document.getElementById("btn");
-var conter = document.getElementById("count")
+document.getElementById('count').innerHTML=0;
+document.getElementById("myInput").style.display = 'none';``
 
 btn.addEventListener("click", function(){
     var myRequest = new XMLHttpRequest();
-    myRequest.open('GET','https://thakersamveg608.github.io/ajax-implementation/data.json', true);
+    myRequest.open('GET','https://sinchan0.github.io/AJAX-JSON/data.json', true);
     myRequest.onload = function(){
         var myObject = JSON.parse(myRequest.responseText);
+        console.log(myObject);
         renderHTML(myObject);
     };
     myRequest.send();
-    
-}
-);
+});
 
-count = data.lenght;
-
-function renderHTML(data){
+function renderHTML(myObject){
     var htmlString = "";
-    for(i=0; i<data.lenght; i++){
-        html += "<tr><td>" + data[i].Name + "</td><td>" + data[i].Version + "</td></tr>" + data[i].API;
+    data.insertAdjacentHTML('beforeend' , htmlString);
+    var i = 0;
+    for(i=0; i<myObject.lenght; i++){
+        htmlString += "<tr><td>" + myObject[i].Name + "</td><td>" + myObject[i].Version + "</td></tr>" + myObject[i].API;
+    }
+    if(i==myObject.length)
+	{
+		document.getElementById('count').innerHTML=i;
+		document.getElementById('btn').style.display='none';
+		document.getElementById('myInput').style.display='block';
     }
 }
 
-
-/*function loadData(){
-    var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function(){
-	    if (xhttp.readyState == 4 && xhttp.status == 200){
-		    var myObject = JSON.parse(xhttp.responseText);
-		    console.log(myObject);
-        renderHTML(myObject)
-        }
-    };
-}
+/*function myFunction() {
+    var input, filter, table, tr, td, i,j;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("info");
+    tr = table.getElementsByTagName("tr");
+    var count=0;
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+          td1 = tr[i].getElementsByTagName("td")[1];
+          if (td+td1) {
+            if ((td.innerHTML.toUpperCase().indexOf(filter)+td1.innerHTML.toUpperCase().indexOf(filter)) > -2) {
+              tr[i].style.display = ""; 
+              count++;
+                 document.getElementById('count').innerHTML=count;
+            } else {
+              tr[i].style.display = "none";
+              document.getElementById('count').innerHTML=count;
+            }    
+      }
+    }
+  }
 */
-
