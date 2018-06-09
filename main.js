@@ -29,7 +29,7 @@ function renderHTML(myObject){
     }
 }
 
-/*function myFunction() {
+function myFunction() {
     var input, filter, table, tr, td, i,j;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -51,4 +51,4 @@ function renderHTML(myObject){
       }
     }
   }
-*/
+
