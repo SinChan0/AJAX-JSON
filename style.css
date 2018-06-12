@@ -1,5 +1,22 @@
+body {
+    background-color: #047386;
+    color : white;
+}
 table, th, td, tr {
-    border: 1px solid black;
+    border: 1px solid rgb(56, 57, 58);
     border-collapse: collapse;
     padding: 15px;
+}
+button {
+    background-color: rgb(56, 57, 58);
+    border: none;
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 800px;
+    cursor: pointer;
+    align-self: center;
 }
